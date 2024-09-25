@@ -15,12 +15,39 @@ console.dir(resultDisplayElement)
 
 /*-------------------------------- Functions --------------------------------*/
 
-const play = () => {
-	console.log('PLAY!')
+const getPlayerChoice = (event) => {
+	playerChoice = event.target.id
+}
+const play = (event) => {
+	getPlayerChoice(event)
+	getComputerChoice()
+	compare()
+	render()
+}
+const getComputerChoice = () => {
+	const randomIndex = Math.floor(Math.random() * choices.length)
+	computerChoice = choices[randomIndex]
+}
+const compare = () => {
+	if (playerChoice === computerChoice) {
+		msg = 'You tied!'
+	} else if (playerChoice === choices[0] && computerChoice === choices[2]) {
+		msg = 'Congrats! You win!'
+	} else if (playerChoice === choices[1] && computerChoice === choices[2]) {
+		msg = 'Congrats! You win!'
+	} else if (playerChoice === choices[2] && computerChoice === choices[1]) {
+		msg = 'Congrats! You win!'
+	} else {
+		msg = 'You lose! Try again!'
+	}
+}
+
+const render = () => {
+	resultDisplayElement.textContent = `You chose ${playerChoice} and the computer chose ${computerChoice}. ${msg}`
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-document.querySelector('#rock').addEventListener('click', play)
-document.querySelector('#paper').addEventListener('click', play)
-document.querySelector('#scissors').addEventListener('click', play)
+document.querySelectorAll('button').forEach((button) => {
+	button.addEventListener('click', play)
+})
