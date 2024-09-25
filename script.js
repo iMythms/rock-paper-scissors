@@ -43,7 +43,20 @@ const compare = () => {
 }
 
 const render = () => {
-	resultDisplayElement.textContent = `You chose ${playerChoice} and the computer chose ${computerChoice}. ${msg}`
+	let msgColor
+	switch (msg) {
+		case 'Congrats! You win!':
+			msgColor = 'green'
+			break
+		case 'You tied!':
+			msgColor = 'orange'
+			break
+		default:
+			msgColor = 'red'
+			break
+	}
+
+	resultDisplayElement.innerHTML = `You chose ${playerChoice} and the computer chose ${computerChoice}.<br><br><span style="color:${msgColor}; font-weight: bold; font-size: x-large;">${msg}</span>`
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
