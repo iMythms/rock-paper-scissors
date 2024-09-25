@@ -57,7 +57,7 @@ const render = () => {
 			break
 	}
 
-	resultDisplayElement.innerHTML = `You chose ${playerChoice} and the computer chose ${computerChoice}.<br><br><span style="color:${msgColor}; font-weight: bold; font-size: x-large;">${msg}</span>`
+	resultDisplayElement.innerHTML = `You chose ${playerChoice} and the computer chose ${computerChoice}.<br><br><br><span style="color:${msgColor}; font-weight: bold; font-size: xx-large;">${msg}</span>`
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
