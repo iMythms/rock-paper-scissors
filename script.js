@@ -29,19 +29,20 @@ const getComputerChoice = () => {
 	computerChoice = choices[randomIndex]
 }
 const compare = () => {
+	const winning = {
+		[choices[0]]: choices[2],
+		[choices[1]]: choices[2],
+		[choices[2]]: choices[1],
+	}
+
 	if (playerChoice === computerChoice) {
 		msg = 'You tied!'
-	} else if (playerChoice === choices[0] && computerChoice === choices[2]) {
-		msg = 'Congrats! You win!'
-	} else if (playerChoice === choices[1] && computerChoice === choices[2]) {
-		msg = 'Congrats! You win!'
-	} else if (playerChoice === choices[2] && computerChoice === choices[1]) {
+	} else if (computerChoice === winning[playerChoice]) {
 		msg = 'Congrats! You win!'
 	} else {
 		msg = 'You lose! Try again!'
 	}
 }
-
 const render = () => {
 	let msgColor
 	switch (msg) {
